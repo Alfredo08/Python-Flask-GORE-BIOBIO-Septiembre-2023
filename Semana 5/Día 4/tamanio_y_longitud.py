@@ -16,7 +16,7 @@ def tamanio_y_longitud_while(lista):
 
 def tamanio_y_longitud(lista):
     lista_nueva = []
-    for i in range(0, lista[0], 1):
+    for cont in range(0, lista[0], 1):
         lista_nueva.append(lista[1])
     return lista_nueva
 
