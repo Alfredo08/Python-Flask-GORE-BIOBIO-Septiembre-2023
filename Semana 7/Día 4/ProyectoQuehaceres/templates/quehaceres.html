@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Lista de Quehaceres </title>
+    </head>
+    <body>
+        <h1> Lista de quehaceres </h1>
+        <table>
+            <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Descripción </th>
+                    <th> Status </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for quehacer in lista_quehaceres: %}
+                <tr>
+                    <td> {{quehacer["id"]}} </td>
+                    <td> {{quehacer["descripcion"]}} </td>
+                    <td> {{quehacer["status"]}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form method="GET" action="/formulario/quehacer">
+            <button> Agregar quehacer </button>
+        </form>
+    </body>
+</html>

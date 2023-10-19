@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Nuevo Quehacer </title>
+    </head>
+    <body>
+        <h1> Formulario para agregar un quehacer </h1>
+        <form method="POST" action="/nuevo/quehacer">
+            <div>
+                <label for="id"> 
+                    Id del nuevo quehacer:
+                </label>
+                <input type="number" id="id" name="id">
+            </div>
+            <div>
+                <label for="descripcion"> 
+                    Descripcion del nuevo quehacer:
+                </label>
+                <input type="text" id="descripcion" name="descripcion">
+            </div>
+            <div>
+                <label for="status"> 
+                    Selecciona el status del nuevo quehacer:
+                </label>
+                <select id="status" name="status">
+                    <option value="cancelado"> Cancelado </option>
+                    <option value="en_progreso"> En progreso </option>
+                    <option value="pendiente"> Pendiente </option>
+                    <option value="completo"> Completo </option>
+                </select>
+            </div>
+            <button> Agregar </button>
+        </form>
+    </body>
+</html>
