@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Lista de Quehaceres </title>
+    </head>
+    <body>
+        <h1> Lista de quehaceres </h1>
+        <h2> Bienvenid@ de vuelta {{session["nombre"]}} {{session["apellido"]}}. Id: {{session["id_usuario"]}}</h2>
+        <form method="POST" action="/procesa/logout">
+            <button> Logout </button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Descripción </th>
+                    <th> Status </th>
+                    <th> Acciones </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for quehacer in lista_quehaceres: %}
+                <tr>
+                    <td> {{quehacer.id}} </td>
+                    <td> {{quehacer.descripcion}} </td>
+                    <td> {{quehacer.status}} </td>
+                    <td> 
+                        {% if quehacer.id_usuario == session["id_usuario"]: %}
+                            <a href="/formulario/editar/quehacer/{{quehacer.id}}"> 
+                                <button> Editar </button>
+                            </a>
+                            <form method="POST" action="/eliminar/quehacer/{{quehacer.id}}"> 
+                                <button> Eliminar </button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form method="GET" action="/formulario/quehacer">
+            <button> Agregar quehacer </button>
+        </form>
+    </body>
+</html>
