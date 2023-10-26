@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Lista de Quehaceres con Usuarios </title>
+    </head>
+    <body>
+        <h1> Lista de quehaceres con usuarios </h1>
+        <h2> Bienvenid@ de vuelta {{session["nombre"]}} {{session["apellido"]}}. Id: {{session["id_usuario"]}}</h2>
+        <form method="POST" action="/procesa/logout">
+            <button> Logout </button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Descripción </th>
+                    <th> Status </th>
+                    <th> Usuario </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for quehacer in lista_quehaceres: %}
+                <tr>
+                    <td> {{quehacer.id}} </td>
+                    <td> {{quehacer.descripcion}} </td>
+                    <td> {{quehacer.status}} </td>
+                    <td> {{quehacer.usuario.nombre}} {{quehacer.usuario.apellido}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form method="GET" action="/quehaceres">
+            <button> Volver a vista de quehaceres </button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Mis quehaceres </title>
+    </head>
+    <body>
+        <h1> Mis quehaceres </h1>
+        <h2> Bienvenid@ de vuelta {{session["nombre"]}} {{session["apellido"]}}. Id: {{session["id_usuario"]}}</h2>
+        <form method="POST" action="/procesa/logout">
+            <button> Logout </button>
+        </form>
+        {% if existen_quehaceres == True: %}
+            <ul>
+                {% for quehacer in usuario.lista_quehaceres: %}
+                <li> {{quehacer.descripcion}} </li>
+                {% endfor %}
+            </ul>
+        {% else: %}
+            <h2> ¡No tienes quehaceres aún! </h2>
+        {% endif %}
+
+        <form method="GET" action="/quehaceres">
+            <button> Volver a vista de quehaceres </button>
+        </form>
+
+    </body>
+</html>
