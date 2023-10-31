@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Login </title>
+        <link rel="stylesheet" href="{{url_for('static', filename='/css/styles.css')}}">
+    </head>
+    <body>
+        <main>
+            <section>
+                <h1> Registro </h1>
+                <form method="POST" action="/procesa/registro">
+                    <div>
+                        <label for="nombre"> 
+                            Nombre:
+                        </label>
+                        <input type="text" id="nombre" name="nombre">
+                        <div class="error">
+                        {% for mensaje in get_flashed_messages(category_filter=['error_nombre']) %}
+                            {{mensaje}}
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <label for="apellido"> 
+                            Apellido:
+                        </label>
+                        <input type="text" id="apellido" name="apellido">
+                        <div class="error">
+                        {% for mensaje in get_flashed_messages(category_filter=['error_apellido']) %}
+                            {{mensaje}}
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <label for="correo"> 
+                            Email:
+                        </label>
+                        <input type="text" id="correo" name="correo">
+                        <div class="error">
+                        {% for mensaje in get_flashed_messages(category_filter=['error_correo']) %}
+                            {{mensaje}}
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <label for="password"> 
+                            Password:
+                        </label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div>
+                        <label for="password_confirmar"> 
+                            Confirmar password:
+                        </label>
+                        <input type="password" id="password_confirmar" name="password_confirmar">
+                        <div class="error">
+                        {% for mensaje in get_flashed_messages(category_filter=['error_password']) %}
+                            {{mensaje}}
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <button> Registro </button>
+                </form>
+            </section>
+            <section>
+                <h1> Login </h1>
+                <form method="POST" action="/procesa/login">
+                    <div>
+                        <label for="correo"> 
+                            Email:
+                        </label>
+                        <input type="text" id="correo" name="correo">
+                    </div>
+                    <div>
+                        <label for="password"> 
+                            Password:
+                        </label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="error_login">
+                        {% for mensaje in get_flashed_messages(category_filter=['error_login']) %}
+                            {{mensaje}}
+                        {% endfor %}
+                    </div>
+                    <button> Login </button>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>
