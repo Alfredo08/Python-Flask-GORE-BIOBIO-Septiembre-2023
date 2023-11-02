@@ -1,0 +1,13 @@
+main{
+    display: flex;
+    padding: 50px;
+    gap: 50px;
+}
+
+section{
+    flex: 1;
+}
+
+.error{
+    color: red;
+}
