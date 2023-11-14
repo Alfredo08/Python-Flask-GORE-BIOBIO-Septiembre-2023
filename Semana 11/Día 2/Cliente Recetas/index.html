@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Cliente Recetas </title>
+    </head>
+    <body>
+        <h1> Lista de Recetas </h1>
+        <button onclick="cargarRecetas(this)">
+            Cargar todas las recetas
+        </button>
+        <table>
+            <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> Menos de 30 min? </th>
+                    <th> Instrucciones </th>
+                    <th> Descripcion </th>
+                </tr>
+            </thead>
+            <tbody class="recetas">
+
+            </tbody>
+        </table>
+        <h2> Agregar nueva receta </h2>
+        <form onsubmit="agregarReceta(event)">
+            <div>
+                <label for="nombre">
+                    Nombre
+                </label>
+                <input type="text" id="nombre" name="nombre">
+            </div>
+            <div>
+                <label for="descripcion">
+                    Descripcion
+                </label>
+                <input type="text" id="descripcion" name="descripcion">
+            </div>
+            <div>
+                <label for="instrucciones">
+                    Instrucciones
+                </label>
+                <input type="text" id="instrucciones" name="instrucciones">
+            </div>
+            <div>
+                <label for="id_usuario">
+                    Id usuario:
+                </label>
+                <input id="id_usuario" type="number" name="id_usuario">
+            </div>
+            <div>
+                <label for="fecha_coccion" class="form-label"> 
+                    Fecha en que se cocinó:
+                </label>
+                <input type="date" id="fecha_coccion" name="fecha_coccion" class="form-control">
+            </div>
+            <button type="submit">
+                Agregar nueva receta
+            </button>
+        </form>
+        <script src="./js/index.js"></script>
+    </body>
+</html>
